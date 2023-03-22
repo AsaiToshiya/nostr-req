@@ -30,8 +30,12 @@
       const handleClick = async () => {
         const pool = new window.NostrTools.SimplePool();
         const event = await pool.get(RELAYS, {
-          authors: [window.NostrTools.nip19.decode($("author").value).data],
-          kinds: [parseInt($("kind").value)],
+          authors: $("author")
+            .value.split(",")
+            .map((value) => window.NostrTools.nip19.decode(value).data),
+          kinds: $("kind")
+            .value.split(",")
+            .map((value) => parseInt(value)),
         });
         $("event").innerHTML = JSON.stringify(event, null, 2);
       };
