@@ -28,11 +28,14 @@
       ];
 
       const handleClick = async () => {
+        const authors = $("author")
+          .value.split(",")
+          .filter((value) => value)
+          .map((value) => window.NostrTools.nip19.decode(value).data);
+
         const pool = new window.NostrTools.SimplePool();
         const event = await pool.get(RELAYS, {
-          authors: $("author")
-            .value.split(",")
-            .map((value) => window.NostrTools.nip19.decode(value).data),
+          authors: authors.length > 0 && authors,
           kinds: $("kind")
             .value.split(",")
             .map((value) => parseInt(value)),
