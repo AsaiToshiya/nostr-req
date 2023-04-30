@@ -35,7 +35,7 @@
 
         const pool = new window.NostrTools.SimplePool();
         const event = await pool.get(RELAYS, {
-          authors: authors.length > 0 && authors,
+          authors: authors.length > 0 ? authors : undefined,
           kinds: $("kind")
             .value.split(",")
             .map((value) => parseInt(value)),
