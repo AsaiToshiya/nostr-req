@@ -33,7 +33,11 @@
         const ids = $("ids")
           .value.split(",")
           .filter((value) => value)
-          .map((value) => window.NostrTools.nip19.decode(value).data.id);
+          .map(
+            (value) =>
+              window.NostrTools.nip19.decode(value.replace(/^nostr:/, "")).data
+                .id
+          );
         const authors = $("author")
           .value.split(",")
           .filter((value) => value)
