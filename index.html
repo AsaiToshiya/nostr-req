@@ -48,13 +48,15 @@
           .value.split(",")
           .filter((value) => value)
           .map((value) => window.NostrTools.nip19.decode(value).data);
+        const kinds = $("kind")
+          .value.split(",")
+          .filter((value) => value)
+          .map((value) => parseInt(value));
 
         return {
           ids: ids.length > 0 ? ids : undefined,
           authors: authors.length > 0 ? authors : undefined,
-          kinds: $("kind")
-            .value.split(",")
-            .map((value) => parseInt(value)),
+          kinds: kinds.length > 0 ? kinds : undefined,
         };
       };
 
