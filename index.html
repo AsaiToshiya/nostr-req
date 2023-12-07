@@ -18,6 +18,8 @@
     <input id="kind" type="text" /><br />
     #p:
     <input id="p" type="text" size="50" placeholder="npub1..." /><br />
+    limit:
+    <input id="limit" type="text" /><br />
     <button onclick="handleClick()">get</button>
     <button onclick="handleListClick()">list</button><br />
     event:
@@ -64,6 +66,7 @@
           authors: authors.length > 0 ? authors : undefined,
           kinds: kinds.length > 0 ? kinds : undefined,
           "#p": pTagValues.length > 0 ? pTagValues : undefined,
+          limit: limit.value ? limit.value : undefined,
         };
       };
 
