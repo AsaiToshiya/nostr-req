@@ -83,6 +83,10 @@
           .map((event) => JSON.stringify(event, null, 2))
           .join("\n");
       };
+
+      const params = new URLSearchParams(location.search);
+      params.forEach((value, key) => value && ($(key).value = value));
+      params.size && handleListClick();
     </script>
   </body>
 </html>
