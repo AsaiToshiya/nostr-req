@@ -31,7 +31,7 @@
     <script>
       const $ = document.getElementById.bind(document);
 
-      const RELAYS = [
+      const relays = [
         "wss://nos.lol",
         "wss://nostr.bitcoiner.social",
         "wss://nostr.mom",
@@ -79,13 +79,13 @@
 
       const handleClick = async () => {
         const pool = new window.NostrTools.SimplePool();
-        const event = await pool.get(RELAYS, makeFilter());
+        const event = await pool.get(relays, makeFilter());
         $("event").innerText = JSON.stringify(event, null, 2);
       };
 
       const handleListClick = async () => {
         const pool = new window.NostrTools.SimplePool();
-        const events = await pool.list(RELAYS, [makeFilter()]);
+        const events = await pool.list(relays, [makeFilter()]);
         $("event").innerText = events
           .map((event) => JSON.stringify(event, null, 2))
           .join("\n");
