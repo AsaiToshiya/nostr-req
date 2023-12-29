@@ -60,7 +60,7 @@
         const eTagValues = e.value
           .split(",")
           .filter((value) => value)
-          .map((value) => window.NostrTools.nip19.decode(value).data);
+          .map((value) => window.NostrTools.nip19.decode(value).data.id);
         const pTagValues = p.value
           .split(",")
           .filter((value) => value)
