@@ -1,3 +1,7 @@
+**This repository has moved to https://github.com/AsaiToshiya/nostr-toybox/tree/main/req.**
+
+---
+
 # nostr-req
 
 nostr-req is a simple web-based tool to request Nostr events.
